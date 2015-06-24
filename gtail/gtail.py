@@ -35,7 +35,7 @@ def fetch(server_config, url):
 
 # gets a list of active streams
 def fetch_streams(server_config):
-    r = fetch(server_config, "http://10.154.143.222:12900/streams")
+    r = fetch(server_config, server_config.uri + "/streams")
     streams = r.json()["streams"]
     # only active streams
     streams = filter(lambda s: s["disabled"] == False, streams)
